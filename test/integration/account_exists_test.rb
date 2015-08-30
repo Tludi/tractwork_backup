@@ -33,6 +33,13 @@ class AccountandUserExistsTest < ActionDispatch::IntegrationTest
   end
 
   test "user does not exist without an account" do
-    
+    assert_empty User.where(account_id: nil)
+  end
+
+  test "associated users are removed when account is deleted" do
+    @accountId = @account.id
+    assert_equal @account.id, @accountId
+    @account.destroy!
+    assert_empty User.where(account_id: @accountId)
   end
 end
