@@ -17,3 +17,4 @@ class UserSessionsControllerTest < ActionController::TestCase
   end
 
 end
+
