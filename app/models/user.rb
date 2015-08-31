@@ -1,5 +1,3 @@
 class User < ActiveRecord::Base
-
-  belongs_to :account
-  
+  authenticates_with_sorcery!
 end
