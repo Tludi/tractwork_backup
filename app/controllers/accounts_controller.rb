@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: []
+  before_action :set_account, only: [:show]
 
   def index
     @accounts = Account.all
@@ -10,16 +10,16 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
-    @user = @account.users.new
+    @account.users.build
   end
 
   def create
     @account = Account.new(account_params)
     respond_to do |format|
       if @account.save
-        format.html{ redirect_to @account, notice: 'Account creation.' }
+        format.html{ redirect_to accounts_path, notice: 'Account created.' }
       else
-        redirect_to accounts_path
+        format.html {redirect_to accounts_path, notice: 'Account Not Created.'}
       end
     end
   end
@@ -30,6 +30,6 @@ class AccountsController < ApplicationController
     end
 
     def account_params
-      params[:account].permit(:name, user_attributes[:name, :email, :password, :password_confirmation, :role])
+      params.require(:account).permit(:name, users_attributes: [:id, :name, :email, :password, :password_confirmation, :role, :account_id])
     end
 end

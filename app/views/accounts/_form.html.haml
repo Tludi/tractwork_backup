@@ -13,7 +13,7 @@
     = f.text_field :name
 
     %p
-    = f.fields_for :user, @user do |u|
+    = f.fields_for :users do |u|
       %p
       = u.label :user_name
       %br
