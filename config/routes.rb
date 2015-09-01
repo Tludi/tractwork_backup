@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :password_resets
   resources :users
-  resources :accounts
+  resources :accounts do
+    resources :users
+  end
 
   get 'login' => 'user_sessions#new', as: :login
   post 'logout' => 'user_sessions#destroy', as: :logout
