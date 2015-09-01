@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show]
+  before_action :set_account, only: [:show, :destroy]
 
   def index
     @accounts = Account.all
@@ -15,12 +15,21 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    @account.users.first.role = "Admin"
     respond_to do |format|
       if @account.save
         format.html{ redirect_to accounts_path, notice: 'Account created.' }
       else
         format.html {redirect_to accounts_path, notice: 'Account Not Created.'}
       end
+    end
+  end
+
+  def destroy
+    @account.destroy
+    respond_to do |format|
+      format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

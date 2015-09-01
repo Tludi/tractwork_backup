@@ -18,6 +18,10 @@ class AccountandUserExistsTest < ActionDispatch::IntegrationTest
     assert_equal accounts(:account1).users.first.name, users(:user1).name
   end
 
+  test "First account user role is admin" do
+    assert_equal "Admin", accounts(:account1).users.first.role
+  end
+
   test "check for false positive in user name for account" do
     assert_not_equal accounts(:account1).users.first.name, users(:user2).name
   end
