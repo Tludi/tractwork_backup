@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index'
+  root to: 'dashboards#index'
 
   # get 'user_sessions/new'
   # get 'user_sessions/create'
   # get 'user_sessions/destroy'
   resources :user_sessions
+
+  get 'dashboards/index'
 
   # get 'password_resets/create'
   get 'password_resets/edit'
