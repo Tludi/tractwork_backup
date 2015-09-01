@@ -1,12 +1,16 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: []
-  
+
   def index
     @accounts = Account.all
   end
 
+  def show
+  end
+
   def new
     @account = Account.new
+    @user = @account.users.new
   end
 
   def create
@@ -26,6 +30,6 @@ class AccountsController < ApplicationController
     end
 
     def account_params
-      params[:account].permit(:name)
+      params[:account].permit(:name, user_attributes[:name, :email, :password, :password_confirmation, :role])
     end
 end

@@ -15,4 +15,7 @@ class AccountsControllerTest < ActionController::TestCase
 
     assert_redirected_to account_path(assigns(:account))
   end
+
+  # TODO: add test for creating user with account
+  
 end
