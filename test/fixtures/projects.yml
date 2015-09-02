@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+project1:
+  name: ProjectOne
+  account: account1
+
+project2:
+  name: ProjectTwo
+  account: account2
