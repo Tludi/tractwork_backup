@@ -3,11 +3,14 @@
 - if current_user
   %h4 welcome
 - else
-  %h3 Login
-  = render 'form'
-  %hr/
-  %h3 Forgot Password?
-  = render 'forgot_password_form'
-  %br/
-  = link_to 'Back', user_sessions_path
-  = link_to 'Forgot Password?', new_password_reset_path
+
+  .login-box
+    .login-logo
+      = link_to "Account", href: "#"
+    .login-box-body
+      %p.login-box-msg Sign in to start your session
+      = render 'form'
+
+= link_to 'Forgot Password?', new_password_reset_path
+%br
+= link_to 'Register a new account', new_account_path, class: 'text-center'
