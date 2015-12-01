@@ -42,10 +42,10 @@
             = link_to 'Register', new_account_path
     / /.navbar-collapse
 
+  .container
+    %p#notice= flash[:notice]
+    %p#alert= flash[:alert]
 
-  %p#notice= flash[:notice]
-  %p#alert= flash[:alert]
-
-  = yield
-  %hr/
-  = debug(params)
+    = yield
+    %hr/
+    = debug(params)
