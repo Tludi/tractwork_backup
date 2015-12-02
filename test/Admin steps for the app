@@ -1,0 +1,21 @@
+Admin steps for the app
+Admin = initial user
+
+1. Admin creates initial account with the Admin as the first user
+2. Admin can create, edit, delete additional users and set their roles
+3. Admin can create, edit, and delete projects
+4. There must be at least one Admin for any account
+5. Admin can edit User hours
+6. Admin can access User hours based on projects, pay periods, etc
+
+
+
+
+
+User steps for the app
+
+1. User logs in and only has access for today
+2. User selects job he is working on
+3. User enters number of hours worked
+4. If User hours is not 8 then email is sent to Admin
+5. User can send message if work entry needs to be changed or added

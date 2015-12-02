@@ -11,7 +11,7 @@
     .login-box-body
       %p.login-box-msg Sign in to start your session
       = render 'form'
-
-= link_to 'Forgot Password?', new_password_reset_path
-%br
-= link_to 'Register a new account', new_account_path, class: 'text-center'
+      - unless current_user
+        = link_to 'Forgot Password?', new_password_reset_path
+        %br
+        = link_to 'Register a new account', new_account_path, class: 'text-center'
