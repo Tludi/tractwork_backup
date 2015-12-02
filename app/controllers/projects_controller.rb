@@ -24,8 +24,10 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    @account_id = current_user.account_id
     @project = Project.new(project_params)
-
+    @project.account_id = @account_id
+    
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }

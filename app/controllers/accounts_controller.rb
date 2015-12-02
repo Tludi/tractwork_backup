@@ -3,9 +3,12 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
+
   end
 
   def show
+    @current_account = current_user.account
+    @current_account_projects = @current_account.projects
   end
 
   def new

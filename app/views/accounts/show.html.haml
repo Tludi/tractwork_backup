@@ -2,4 +2,27 @@
 
 %h3= @account.name
 
+%h5= "#{@account.projects.count} projects"
+
+
+%table.table.table-striped
+
+  %tr
+    %th Project name
+    -# %th Admin Name
+    -# %th Admin Email
+    %th
+    %th
+
+    - @current_account_projects.each do |project|
+      %tr
+        %td= project.name
+        -# %td= project.users.first.name
+        -# %td= project.users.first.email
+        %td= link_to 'Show', project
+        %td= link_to 'Delete', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+= link_to 'New Project', new_project_path
+
 = link_to 'Back', accounts_path
