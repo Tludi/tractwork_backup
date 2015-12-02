@@ -1,11 +1,21 @@
-= Account.count
+%span= "#{Account.count} accounts"
 
-- @accounts.each do |a|
-  = a.name
-  %br
-  = a.users.first.name
-  = a.users.first.role
-  = link_to 'Delete', a, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%table.table.table-striped
+
+  %tr
+    %th Account name
+    %th Admin Name
+    %th Admin Email
+    %th
+    %th
+
+    - @accounts.each do |account|
+      %tr
+        %td= account.name
+        %td= account.users.first.name
+        %td= account.users.first.email
+        %td= link_to 'Show', account
+        %td= link_to 'Delete', account, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %hr/
 = link_to "New Account", new_account_path
