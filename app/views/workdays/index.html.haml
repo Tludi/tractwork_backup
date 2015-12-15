@@ -1,0 +1,29 @@
+%h1 Listing workdays
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Project
+      %th Daydate
+      %th Hoursworked
+      %th Notes
+      %th
+      %th
+      %th
+
+  %tbody
+    - @workdays.each do |workday|
+      %tr
+        %td= workday.user_id
+        %td= workday.project_id
+        %td= workday.dayDate
+        %td= workday.hoursWorked
+        %td= workday.notes
+        %td= link_to 'Show', workday
+        %td= link_to 'Edit', edit_workday_path(workday)
+        %td= link_to 'Destroy', workday, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Workday', new_workday_path

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @workday.user_id
+%p
+  %b Project:
+  = @workday.project_id
+%p
+  %b Daydate:
+  = @workday.dayDate
+%p
+  %b Hoursworked:
+  = @workday.hoursWorked
+%p
+  %b Notes:
+  = @workday.notes
+
+= link_to 'Edit', edit_workday_path(@workday)
+\|
+= link_to 'Back', workdays_path
