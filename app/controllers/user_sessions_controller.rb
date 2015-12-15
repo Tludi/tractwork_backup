@@ -7,7 +7,11 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(:root, notice: 'Login successful')
+      if @user.role == "Admin"
+        redirect_back_or_to(:root, notice: 'Admin Login successful')
+      else 
+        redirect_back_or_to(@user, notice: 'Login successful')
+      end
     else
       flash.now[:alert] = "Login failed"
       render action: "new"
