@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   belongs_to :account
+  has_many :workdays
+  has_many :projects, through: :workdays
 end
