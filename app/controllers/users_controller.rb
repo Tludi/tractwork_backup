@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :verify_user, only: [:show]
 
   # GET /users
   # GET /users.json
@@ -68,6 +69,14 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+    def verify_user
+      unless current_user.id == params[:id]
+        flash[:error] = "not allowed"
+      end
+    end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
