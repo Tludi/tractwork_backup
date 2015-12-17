@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       if @user.role == "Admin"
         redirect_back_or_to(:root, notice: 'Admin Login successful')
       else 
-        redirect_back_or_to(@user, notice: 'Login successful')
+        redirect_back_or_to(:timesheet, notice: 'Login successful')
       end
     else
       flash.now[:alert] = "Login failed"

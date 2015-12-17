@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'timesheet/index', as: :timesheet
+
   resources :workdays
   resources :projects
   root to: 'dashboards#index'
